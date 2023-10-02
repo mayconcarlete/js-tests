@@ -32,12 +32,12 @@ jobs:
         run: echo $(printenv HOME)
 
       - name: branches SHA
+        if: contains('index.js, package.json', 'package.json')
         run: |
-          BASE_BRANCH_SHA=$(git rev-parse master)
-          HEAD_BRANCH_SHA=$(git rev-parse feat-test)
-          echo "$BASE_BRANCH_SHA" "$HEAD_BRANCH_SHA"
+          RUN_ALL_TESTS=1
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
+          echo "RUN ALL TESTS: ${RUN_ALL_TESTS}"
           echo Add other actions to build,
           echo test, and deploy your project.

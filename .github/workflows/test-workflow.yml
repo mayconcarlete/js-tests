@@ -32,7 +32,7 @@ jobs:
         run: echo $(printenv HOME)
 
       - name: branches SHA
-        if: contains('index.js, package.json', 'package.json')
+        if: contains('index.js, package.json', 'packsage.json') || contains('index.js package.json package-lock.json', 'package-lock.json')
         run: echo "RUN_ALL_TESTS=1" >> $GITHUB_ENV
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script

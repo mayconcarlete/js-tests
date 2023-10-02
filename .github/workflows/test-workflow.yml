@@ -36,7 +36,7 @@ jobs:
           BASE_BRANCH: ${{github.base_ref}}
           HEAD_BRANCH: ${{github.head_ref}}
         run: |
-          FILES_CHANGED=$(git diff --name-only --diff-filter=ACMRT ${{ github.base_ref }} ${{ github.head_ref }} -- "**/*.ts" "**/*.tsx" "**/*.js" "**/*.jsx" | xargs)
+          FILES_CHANGED=$(git diff --name-only --diff-filter=ACMRT ${{ github.sha }} ${{ github.ref }} -- "**/*.ts" "**/*.tsx" "**/*.js" "**/*.jsx" | xargs)
           echo $FILES_CHANGED
 
       - name: Echo MY NAME IS

@@ -31,6 +31,10 @@ jobs:
       - name: Echo Variable Name
         run: echo $(printenv HOME)
 
+      - name: get sha values
+        run: |
+          echo "BASE_BRANCH_SHA=$(git rev-parse master)" >> $GITHUB_ENV
+
       - name: branches SHA
         if: contains('index.js, package.json', 'packsage.json') || contains('index.js package.json package-lock.json', 'package-Alock.json')
         run: echo "RUN_ALL_TESTS=1" >> $GITHUB_ENV
@@ -38,6 +42,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo "RUN ALL TESTS: ${RUN_ALL_TESTS} valor"
+          echo "SHA: ${BASE_BRANCH_SHA}"
           echo $RUN_ALL_TESTS
+
           echo Add other actions to build,
           echo test, and deploy your project.

@@ -31,6 +31,12 @@ jobs:
       - name: Echo Variable Name
         run: echo $(printenv HOME)
 
+      - name: branches SHA
+        env:
+          BASE_BRANCH: ${{github.base_ref}}
+          HEAD_BRANCH: ${{github.head_ref}}
+        run: echo $(printenv BASE_BRANCH HEAD_BRANCH)
+
       - name: Echo MY NAME IS
         env:
           MEUNOME: ${{secrets.MEU_NOME_E}}

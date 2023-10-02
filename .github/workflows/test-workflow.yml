@@ -35,20 +35,7 @@ jobs:
         env:
           BASE_BRANCH: ${{github.base_ref}}
           HEAD_BRANCH: ${{github.head_ref}}
-        run: |
-          FILES_CHANGED=$(git diff --name-only --diff-filter=ACMRT ${{ github.sha }} ${{ github.ref }} | xargs)
-          echo $FILES_CHANGED
-      - name: check if packagejson or package lock
-        if: contains(git diff --name-only --diff-filter=ACMRT ${{ github.sha }} ${{ github.ref }} | xargs, "package.json")
-        run: |
-          RUN_ALL_TESTS=1
-
-      - name: SHOULD run all test
-        run: echo $RUN_ALL_TESTS
-      - name: Echo MY NAME IS
-        env:
-          MEUNOME: ${{secrets.MEU_NOME_E}}
-        run: echo $(printenv MEUNOME)
+        run: echo $BASE_BRANCH HEAD_BRANCH
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |

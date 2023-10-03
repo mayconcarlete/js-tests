@@ -42,11 +42,10 @@ jobs:
           REPORTING_MICROSERVICE_PORT: 8085
         run: |
           echo "TEST_MODE: ${TEST_MODE} - DEV_MODE: ${DEV_MODE} -REPORTING_MICROSERVICE_PORT: ${REPORTING_MICROSERVICE_PORT}"
-          node index.js
 
       - name: get sha values
         run: |
-          echo "$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
+          echo "$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} feat-test | xargs)"
 
       - name: branches SHA
         if: contains(env.FILES_CHANGED, 'package.json') || contains(env.FILES_CHANGED, 'package-lock.json')

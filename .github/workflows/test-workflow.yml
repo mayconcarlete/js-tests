@@ -32,6 +32,16 @@ jobs:
         run: echo Hello, world!
       - name: Echo Variable Name
         run: echo $(printenv HOME)
+      - name: Test env names
+        env:
+          TEST_MODE: true
+          DEV_MODE: false
+          QA_MODE: false
+          LOCAL_DATABASE_MODE: true
+          SKIP_INIT: false
+          REPORTING_MICROSERVICE_PORT: 8085
+        run: |
+          echo "TEST_MODE: ${TEST_MODE} - DEV_MODE: ${DEV_MODE} -REPORTING_MICROSERVICE_PORT: ${REPORTING_MICROSERVICE_PORT}"
 
       - name: get sha values
         run: |

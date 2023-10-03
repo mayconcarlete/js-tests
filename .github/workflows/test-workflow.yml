@@ -46,7 +46,7 @@ jobs:
 
       - name: get sha values
         run: |
-          echo "FILES_CHANGED=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)" >> $GITHUB_ENV
+          echo "$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
 
       - name: branches SHA
         if: contains(env.FILES_CHANGED, 'package.json') || contains(env.FILES_CHANGED, 'package-lock.json')

@@ -57,7 +57,7 @@ jobs:
           echo "RUN ALL TESTS: ${RUN_ALL_TESTS} valor"
           echo "FILES_CHANGED: ${FILES_CHANGED}"
           echo "FILES_CHANGED_ENV: ${{env.FILES_CHANGED}}"
-          echo "FILES_CHANGED_GITENV: ${{github.env.FILES_CHANGED}}"
+          echo "FILES_CHANGED_GITENV: ${GITHUB_ENV.FILES_CHANGED}"
           echo $RUN_ALL_TESTS
 
           echo Add other actions to build,

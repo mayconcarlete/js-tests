@@ -1,0 +1,6 @@
+console.log(process.env.TEST_MODE)
+console.log(process.env.DEV_MODE)
+console.log(process.env.QA_MODE)
+console.log(process.env.LOCAL_DATABASE_MODE)
+console.log(process.env.SKIP_INIT)
+console.log(process.env.REPORTING_MICROSERVICE_PORT)

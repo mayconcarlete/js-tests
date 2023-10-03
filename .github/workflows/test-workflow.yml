@@ -50,7 +50,7 @@ jobs:
 
       - name: branches SHA
         if: contains('index.js, package.json', 'packsage.json') || contains('index.js package.json package-lock.json', 'package-Alock.json')
-        run: echo "RUN_ALL_TESTS=1" >> $GITHUB_ENV
+        run: echo "RUN_ALL_TESTS=true" >> $GITHUB_ENV
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |

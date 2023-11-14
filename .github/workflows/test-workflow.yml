@@ -43,5 +43,8 @@ jobs:
       
       - name: executing image
         run: |
-          docker ps -aq
-          docker --version
+          docker run -p 3000:3000 038213797816.dkr.ecr.us-east-1.amazonaws.com/app
+          
+      - name: curl the application
+        run: |
+          curl -i http://localhost:3000

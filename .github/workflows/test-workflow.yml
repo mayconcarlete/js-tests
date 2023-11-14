@@ -43,5 +43,5 @@ jobs:
       
       - name: executing image
         run: |
-          run docker ps -aq
+          docker ps -aq
           docker --version
